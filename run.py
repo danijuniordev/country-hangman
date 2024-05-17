@@ -184,8 +184,10 @@ def start_game():
 
     while tries > 0 and '_' in guessed_word:
         if time.time() - start_time > 60:
+            print(fail_game)
             print("Time's up! You couldn't guess the word in time.")
             print("The word was:", word)
             return
+        guess = input("Enter a letter: ").lower()
         
     main()
