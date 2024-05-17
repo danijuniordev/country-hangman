@@ -1,6 +1,7 @@
 import random
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import os
 import time
 import threading
 
@@ -10,3 +11,10 @@ scope = ['https://spreadsheets.google.com/feeds',
 creds = ServiceAccountCredentials.from_json_keyfile_name('creds.json', scope)
 client = gspread.authorize(creds)
 sheet = client.open('hangman-words').sheet1
+
+def clear_terminal():
+    '''
+    Clears the terminal.
+    '''
+
+    os.system('cls' if os.name == 'nt' else 'clear')
