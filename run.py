@@ -210,5 +210,9 @@ def start_game():
             print(" ".join(guessed_word))
         else:
             print("Invalid input. Please enter only one letter.")            
-            
+    if '_' not in guessed_word:
+        print("Congratulations! You guessed the word:", word)
+    else:
+        print("You've been hanged! The word was:", word)
+        
     main()
