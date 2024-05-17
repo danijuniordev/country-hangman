@@ -46,7 +46,7 @@ def main():
         time.sleep(FEEDBACK_TIME)
         main()
     elif choice == '1':
-        start_game()
+        play()
     elif choice == '2':
         instructions()
 
@@ -66,8 +66,12 @@ def bottom_input():
     '''
     Prints a line of '-' and waits for user input before returning to the menu.
     '''
-    print('-' * 80)
+    print('-' * 100)
     input('Press ENTER to return to the menu...')
     main()
+
+def get_random_word():
+    words = sheet.col_values(1)
+    return random.choice(words).lower()
 
 main()
