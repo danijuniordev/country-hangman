@@ -61,5 +61,13 @@ def instructions():
     print('Each incorrect letter choice brings you closer to the hangman is fate, so choose wisely!\n')
 
     bottom_input()
-    
+
+def bottom_input():
+    '''
+    Prints a line of '-' and waits for user input before returning to the menu.
+    '''
+    print('-' * 80)
+    input('Press ENTER to return to the menu...')
+    main()
+
 main()
