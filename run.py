@@ -46,7 +46,7 @@ def main():
         time.sleep(FEEDBACK_TIME)
         main()
     elif choice == '1':
-        play()
+        start_game()
     elif choice == '2':
         instructions()
 
@@ -80,7 +80,7 @@ def draw_hangman(tries):
            --------
            |      |
            |      O
-           |     \|/
+           |     \|//
            |      |
            |     / \\
            -
@@ -90,7 +90,7 @@ def draw_hangman(tries):
            --------
            |      |
            |      O
-           |     \|/
+           |     \|//
            |      |
            |     / 
            -
@@ -100,7 +100,7 @@ def draw_hangman(tries):
            --------
            |      |
            |      O
-           |     \|/
+           |     \|//
            |      |
            |      
            -
@@ -148,5 +148,11 @@ def draw_hangman(tries):
     ]
     return stages[tries]
 
+def start_game():
+    word = get_random_word()
+    guessed_letters = []
+    guessed_word = ['_'] * len(word)
+    tries = 7
+    start_time = time.time()
 
-main()
+    main()
