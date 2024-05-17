@@ -42,13 +42,24 @@ def main():
     valid_choices = ['1', '2']
 
     if choice not in valid_choices:
-        print(f'{Fore.RED}Invalid selection, try again.')
+        print('Invalid selection, try again.')
         time.sleep(FEEDBACK_TIME)
-        main_menu()
+        main()
     elif choice == '1':
         start_game()
     elif choice == '2':
         instructions()
 
+def instructions():
+    '''
+    Print game instructions.
+    '''
+    clear_terminal()
+    print('Welcome to the challenging world of Global Hangman!\n')
+    print('Get ready to test your geographical knowledge as you journey across the game.')
+    print('In this thrilling game, your objective is to guess the secret country before the hangman is fully drawn.')
+    print('Each incorrect letter choice brings you closer to the hangman is fate, so choose wisely!\n')
 
+    bottom_input()
+    
 main()
