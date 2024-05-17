@@ -74,4 +74,79 @@ def get_random_word():
     words = sheet.col_values(1)
     return random.choice(words).lower()
 
+def draw_hangman(tries):
+    stages = [  # Head, body, both arm and both lag
+        """
+           --------
+           |      |
+           |      O
+           |     \|/
+           |      |
+           |     / \\
+           -
+        """,
+        # Head, body, both arm and left lag
+        """
+           --------
+           |      |
+           |      O
+           |     \|/
+           |      |
+           |     / 
+           -
+        """,
+        # Head, body and both arm
+        """
+           --------
+           |      |
+           |      O
+           |     \|/
+           |      |
+           |      
+           -
+        """,
+        # Head, body and left arm
+        """
+           --------
+           |      |
+           |      O
+           |     \|
+           |      |
+           |     
+           -
+        """,
+        # Head, body
+        """
+           --------
+           |      |
+           |      O
+           |      |
+           |      |
+           |     
+           -
+        """,
+        # Head
+        """
+           --------
+           |      |
+           |      O
+           |    
+           |      
+           |     
+           -
+        """,
+        # Empyt
+        """
+           --------
+           |      |
+           |      
+           |    
+           |      
+           |     
+           -
+        """
+    ]
+    return stages[tries]
+
+
 main()
