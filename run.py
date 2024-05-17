@@ -207,6 +207,8 @@ def start_game():
                 print(draw_hangman(tries))
 
             print("Letters tried:", ", ".join(guessed_letters))
-            print(" ".join(guessed_word))            
+            print(" ".join(guessed_word))
+        else:
+            print("Invalid input. Please enter only one letter.")            
             
     main()
