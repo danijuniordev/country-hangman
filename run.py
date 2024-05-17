@@ -189,5 +189,24 @@ def start_game():
             print("The word was:", word)
             return
         guess = input("Enter a letter: ").lower()
-        
+
+        if len(guess) == 1 and guess.isalpha():
+            if guess in guessed_letters:
+                print("You've already tried that letter. Try another one.")
+                continue
+            guessed_letters.append(guess)
+
+            if guess in word:
+                print("Correct letter!")
+                for i in range(len(word)):
+                    if word[i] == guess:
+                        guessed_word[i] = guess
+            else:
+                print("Wrong letter!")
+                tries -= 1
+                print(draw_hangman(tries))
+
+            print("Letters tried:", ", ".join(guessed_letters))
+            print(" ".join(guessed_word))            
+            
     main()
