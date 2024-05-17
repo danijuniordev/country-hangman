@@ -25,6 +25,25 @@ game_start = '''
 
     2 - Introduction.
 '''
+win_game = """ 
+    █        █   ████████   █          █              █████       █████████   ██      █   ████████  
+    █        █   █          █          █              █     █     █       █   █ █     █   █ 
+    █        █   █          █          █              █       █   █       █   █  █    █   █
+    █   ██   █   █████      █          █              █       █   █       █   █   █   █   █████
+    █  █  █  █   █          █          █              █      █    █       █   █    █  █   █
+    █ █    █ █   █          █          █              █    █      █       █   █     █ █   █
+    ██      ██   ████████   ████████   ████████       █████       █████████   █      ██   ████████ 
+"""
+
+fail_game = """ 
+    ████████   ████████   █   █
+    █          █      █   █   █
+    █          █      █   █   █
+    ██████     ████████   █   █
+    █          █      █   █   █
+    █          █      █   █   █
+    █          █      █   █   ████████
+"""
 ## Variables
 FEEDBACK_TIME = 2
 
@@ -59,6 +78,7 @@ def instructions():
     print('Get ready to test your geographical knowledge as you journey across the game.')
     print('In this thrilling game, your objective is to guess the secret country before the hangman is fully drawn.')
     print('Each incorrect letter choice brings you closer to the hangman is fate, so choose wisely!\n')
+    print('You have 1 minute to guess the word')
 
     bottom_input()
 
@@ -155,4 +175,17 @@ def start_game():
     tries = 7
     start_time = time.time()
 
+    print("Welcome to the Hangman Game!")
+    print("Guess the word:")
+    print(" ".join(guessed_word))
+    print("You have 1 minute to guess.")
+
+    clear_terminal()
+
+    while tries > 0 and '_' in guessed_word:
+        if time.time() - start_time > 60:
+            print("Time's up! You couldn't guess the word in time.")
+            print("The word was:", word)
+            return
+        
     main()
