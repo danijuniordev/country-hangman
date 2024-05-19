@@ -173,6 +173,7 @@ def start_game():
     guessed_letters = []
     guessed_word = ['_'] * len(word)
     tries = 7
+    score = 0
     start_time = time.time()
 
     print("Welcome to the Hangman Game!")
@@ -198,11 +199,13 @@ def start_game():
 
             if guess in word:
                 print("Correct letter!")
+                score += 10
                 for i in range(len(word)):
                     if word[i] == guess:
                         guessed_word[i] = guess
             else:
                 print("Wrong letter!")
+                score -= 5
                 tries -= 1
                 print(draw_hangman(tries))
 
@@ -211,12 +214,15 @@ def start_game():
         elif len(guess) == len(word) and guess.isalpha():
             if guess == word:
                 print(win_game)
+                score += 50
                 print("You guessed the word:", word)
+                print("Your score:", score)
                 return
             else:
                 print(fail_game)
                 print("Incorrect guess! The word was not:", guess)
                 print("You've been hanged! The word was:", word)
+                print("Your score:", score)
                 return
         else:
             print("Invalid input. Please enter either one letter or guess the complete word.")
@@ -224,9 +230,11 @@ def start_game():
     if '_' not in guessed_word:
         print(win_game)
         print("You guessed the word:", word)
+        print("Your score:", score)
     else:
         print(fail_game)
         print("You've been hanged! The word was:", word)
+        print("Your score:", score)
 
 if __name__ == "__main__":
     main()
