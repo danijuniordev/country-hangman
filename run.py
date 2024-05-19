@@ -100,7 +100,7 @@ def draw_hangman(tries):
            --------
            |      |
            |      O
-           |     \|//
+           |     \|/
            |      |
            |     / \\
            -
@@ -110,7 +110,7 @@ def draw_hangman(tries):
            --------
            |      |
            |      O
-           |     \|//
+           |     \|/
            |      |
            |     / 
            -
@@ -120,7 +120,7 @@ def draw_hangman(tries):
            --------
            |      |
            |      O
-           |     \|//
+           |     \|/
            |      |
            |      
            -
@@ -188,7 +188,7 @@ def start_game():
             print("Time's up! You couldn't guess the word in time.")
             print("The word was:", word)
             return
-        guess = input("Enter a letter: ").lower()
+        guess = input("Enter a letter or guess the complete word: ").lower()
 
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
@@ -208,11 +208,25 @@ def start_game():
 
             print("Letters tried:", ", ".join(guessed_letters))
             print(" ".join(guessed_word))
+        elif len(guess) == len(word) and guess.isalpha():
+            if guess == word:
+                print(win_game)
+                print("You guessed the word:", word)
+                return
+            else:
+                print(fail_game)
+                print("Incorrect guess! The word was not:", guess)
+                print("You've been hanged! The word was:", word)
+                return
         else:
-            print("Invalid input. Please enter only one letter.")            
+            print("Invalid input. Please enter either one letter or guess the complete word.")
+
     if '_' not in guessed_word:
-        print("Congratulations! You guessed the word:", word)
+        print(win_game)
+        print("You guessed the word:", word)
     else:
+        print(fail_game)
         print("You've been hanged! The word was:", word)
-        
+
+if __name__ == "__main__":
     main()
