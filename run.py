@@ -57,7 +57,7 @@ def clear_terminal():
 def main():
     clear_terminal()
     print(game_start)
-    choice = input('Select an option: ')
+    choice = input('Select an option:\n')
     valid_choices = ['1', '2', '3']
 
     if choice not in valid_choices:
@@ -101,11 +101,11 @@ def draw_hangman(tries):
         """
                       _____________        
            ████████  | oh, my neck!| 
-           █      █ /|_____________|
+           █      | /|_____________|
            █      O
-           █     /|\\
+           █     /|\
            █      |
-           █     / \\
+           █     / \
            -
         """,
         # Head, body, both arms, and left leg
@@ -114,7 +114,7 @@ def draw_hangman(tries):
            ████████  | Please,     |
            █      | /| Last chance!|
            █      O  |_____________|
-           █     /|\\
+           █     /|\
            █      |
            █     / 
            -
@@ -124,7 +124,7 @@ def draw_hangman(tries):
            ████████
            █      |
            █      O
-           █     /|\\
+           █     /|\
            █      |
            █      
            -
@@ -201,6 +201,9 @@ def view_scores():
     bottom_input()
 
 def start_game():
+    '''
+    start the game
+    '''
     name = input("Enter your name: ")
     word = get_random_word()
     guessed_letters = []
@@ -222,7 +225,7 @@ def start_game():
             print("The word was:", word)
             store_score(name, score)
             return
-        guess = input("Enter a letter or guess the complete word: ").lower()
+        guess = input("Enter a letter or guess the complete word:\n").lower()
 
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
