@@ -214,7 +214,8 @@ def start_game():
 
     clear_terminal()
     print("Welcome to the Hangman Game!")
-    print("Guess the word:")
+    print(draw_hangman(tries))
+    print("Guess the country:")
     print(" ".join(guessed_word))
     print("You have 1 minute to guess.")
 
@@ -226,6 +227,20 @@ def start_game():
             store_score(name, score)
             return
         guess = input("Enter a letter or guess the complete word:\n").lower()
+
+        if guess == 'hint':
+            if score >= 15:
+                hint = get_hint(word, guessed_word, guessed_letters)
+                if hint:
+                    score -= 15
+                    print(f"Here's your hint! The letter '{hint}' is in the word.")
+                    for i in range(len(word)):
+                        if word[i] == hint:
+                            guessed_word[i] = hint
+                else:
+                    print("No hints available.")
+            else:
+                print("Not enough points for a hint! You need at least 15 points.")
 
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
@@ -277,6 +292,14 @@ def start_game():
         print("Your score:", score)
         store_score(name, score)
 
+def get_hint(word, guessed_word, guessed_letters):
+    '''
+    Provide a hint by revealing an unrevealed letter in the word.
+    '''
+    for letter in word:
+        if letter not in guessed_word and letter not in guessed_letters:
+            return letter
+    return None
 
 if __name__ == "__main__":
     main()
