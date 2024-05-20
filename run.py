@@ -57,7 +57,7 @@ def clear_terminal():
 def main():
     clear_terminal()
     print(game_start)
-    choice = input('Select an option:\n')
+    choice = input('Select an option: ')
     valid_choices = ['1', '2', '3']
 
     if choice not in valid_choices:
@@ -79,8 +79,10 @@ def instructions():
     print('Welcome to the challenging world of Global Hangman!\n')
     print('Get ready to test your geographical knowledge as you journey across the game.')
     print('In this thrilling game, your objective is to guess the secret country before the hangman is fully drawn.')
-    print('Each incorrect letter choice brings you closer to the hangman is fate, so choose wisely!\n')
-    print('You have 1 minute to guess the word')
+    print('Each incorrect letter choice brings you closer to the hangman’s fate, so choose wisely!\n')
+    print('You have 1 minute to guess the country.')
+    print('For each correct letter, you earn 10 points, and for each incorrect letter, you lose 5 points.')
+    print('After earning 15 points, you can ask for a hint by typing "hint".')
 
     bottom_input()
 
@@ -103,9 +105,9 @@ def draw_hangman(tries):
            ████████  | oh, my neck!| 
            █      | /|_____________|
            █      O
-           █     /|\
+           █     /|\\
            █      |
-           █     / \
+           █     / \\
            -
         """,
         # Head, body, both arms, and left leg
@@ -114,7 +116,7 @@ def draw_hangman(tries):
            ████████  | Please,     |
            █      | /| Last chance!|
            █      O  |_____________|
-           █     /|\
+           █     /|\\
            █      |
            █     / 
            -
@@ -124,7 +126,7 @@ def draw_hangman(tries):
            ████████
            █      |
            █      O
-           █     /|\
+           █     /|\\
            █      |
            █      
            -
@@ -146,7 +148,7 @@ def draw_hangman(tries):
            █      O
            █      |
            █      |
-           █     
+           █   
            -
         """,
         # Head
@@ -213,11 +215,12 @@ def start_game():
     start_time = time.time()
 
     clear_terminal()
-    print("Welcome to the Hangman Game!")
+    print("Welcome to the Hangman Game!\n")
     print(draw_hangman(tries))
     print("Guess the country:")
     print(" ".join(guessed_word))
-    print("You have 1 minute to guess.")
+    print("\nYou have 1 minute to guess.")
+    print("Remember, after earning 15 points, you can ask for a hint by typing 'hint'.")
 
     while tries > 0 and '_' in guessed_word:
         if time.time() - start_time > 60:
@@ -239,8 +242,10 @@ def start_game():
                             guessed_word[i] = hint
                 else:
                     print("No hints available.")
+                continue  # Skip the rest of the loop and ask for input again
             else:
                 print("Not enough points for a hint! You need at least 15 points.")
+                continue  # Skip the rest of the loop and ask for input again
 
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
