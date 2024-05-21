@@ -56,6 +56,9 @@ def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def main():
+    '''
+    Main manu, where the users select an option
+    '''
     clear_terminal()
     print(game_start)
     choice = input('Select an option: ')
@@ -97,10 +100,16 @@ def bottom_input():
     main()
 
 def get_random_word():
+    '''
+    Get a random word from the google sheet
+    '''
     words = sheet.col_values(1)
     return random.choice(words).lower()
 
 def draw_hangman(tries):
+    '''
+    Draw the body each time when the user guess an incorrect letter
+    '''
     stages = [  # Head, body, both arms, and both legs
         """
                       ______________       
@@ -177,6 +186,9 @@ def draw_hangman(tries):
     return stages[tries]
 
 def store_score(name, score):
+    '''
+    To store score in the google sheet
+    '''
     try:
         score_sheet = client.open('hangman-words').worksheet('Scores')
     except gspread.exceptions.WorksheetNotFound:
@@ -187,6 +199,9 @@ def store_score(name, score):
     score_sheet.append_row([name, score, time.strftime("%Y-%m-%d %H:%M:%S")])
 
 def view_scores():
+    '''
+    Get the score from the google sheet
+    '''
     clear_terminal()
     try:
         score_sheet = client.open('hangman-words').worksheet('Scores')
@@ -206,7 +221,7 @@ def view_scores():
 
 def start_game():
     '''
-    start the game
+    Start the game
     '''
     name = input("Enter your name: ")
     word = get_random_word()
@@ -231,6 +246,7 @@ def start_game():
             print("Time's up! You couldn't guess the word in time.")
             print("The word was:", word)
             store_score(name, score)
+            bottom_input()
             return
 
         guess = input("Enter a letter or guess the complete word: ").lower()
@@ -284,6 +300,7 @@ def start_game():
                 print("You guessed the word:", word)
                 print("Your score:", score)
                 store_score(name, score)
+                bottom_input()
                 return
             else:
                 clear_terminal()
@@ -292,6 +309,7 @@ def start_game():
                 print("You've been hanged! The word was:", word)
                 print("Your score:", score)
                 store_score(name, score)
+                bottom_input()
                 return
         else:
             print("Invalid input. Please enter either one letter or guess the complete word.")
@@ -302,12 +320,14 @@ def start_game():
         print("You guessed the word:", word)
         print("Your score:", score)
         store_score(name, score)
+        bottom_input()
     else:
         clear_terminal()
         print(fail_game)
         print("You've been hanged! The word was:", word)
         print("Your score:", score)
         store_score(name, score)
+        bottom_input()
 
 def get_hint(word, guessed_word, guessed_letters):
     '''
