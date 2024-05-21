@@ -12,38 +12,39 @@ client = gspread.authorize(creds)
 sheet = client.open('hangman-words').sheet1
 
 game_start = '''
-    █     █   ████████   ██      █  ███████    ██       ██   ████████   ██      █ 
-    █     █   █      █   █ █     █  █          █ █     █ █   █      █   █ █     █
-    █     █   █      █   █  █    █  █          █  █   █  █   █      █   █  █    █
-    ███████   ████████   █   █   █  █   ████   █   █ █   █   ████████   █   █   █
-    █     █   █      █   █    █  █  █      █   █    █    █   █      █   █    █  █
-    █     █   █      █   █     █ █  █      █   █         █   █      █   █     █ █ 
-    █     █   █      █   █      ██  ████████   █         █   █      █   █      ██
-
-    1 - Start Game.
-
-    2 - Introduction.
-
-    3 - View Scores.
+██████████████████████████████████████████████████████████████████████
+█                   Welcome to the hangman challenge!                █
+█                                                                    █
+█   1 - Start Game.                                                  █
+█                                                                    █
+█   2 - Introduction.                                                █
+█                                                                    █
+█   3 - View Scores.                                                 █
+█                                                                    █
+██████████████████████████████████████████████████████████████████████
 '''
-win_game = """ 
-    █        █   ████████   █          █              █████       █████████   ██      █   ████████  
-    █        █   █          █          █              █     █     █       █   █ █     █   █ 
-    █        █   █          █          █              █       █   █       █   █  █    █   █
-    █   ██   █   █████      █          █              █       █   █       █   █   █   █   █████
-    █  █  █  █   █          █          █              █      █    █       █   █    █  █   █
-    █ █    █ █   █          █          █              █    █      █       █   █     █ █   █
-    ██      ██   ████████   ████████   ████████       █████       █████████   █      ██   ████████ 
+win_game = """
+Congratulations! 🎉
+
+You demonstrated incredible talent and knowledge by winning the hangman game! 
+Your skill in guessing the words was spectacular. Keep it up, and you will certainly 
+continue to excel in any challenge you face.
+
+We are all very proud of you. Enjoy this victory!
+
+Celebrate a lot, champion!
 """
 
 fail_game = """ 
-    ████████   ████████   █   █
-    █          █      █   █   █
-    █          █      █   █   █
-    ██████     ████████   █   █
-    █          █      █   █   █
-    █          █      █   █   █
-    █          █      █   █   ████████
+Hello,
+
+Unfortunately, this time you didn't manage to win the hangman game. 
+But don't be discouraged! Every challenge is an opportunity for learning and growth.
+
+Even though you didn't win today, remember that perseverance and consistent practice are key to achieving success in any endeavor. 
+Keep practicing, and I'm sure you'll improve more and more.
+
+Don't give up! The next game could be your big win.
 """
 ## Variables
 FEEDBACK_TIME = 2
@@ -101,9 +102,9 @@ def get_random_word():
 def draw_hangman(tries):
     stages = [  # Head, body, both arms, and both legs
         """
-                      _____________        
-           ████████  | oh, my neck!| 
-           █      | /|_____________|
+                      ______________       
+           ████████  | oh, my neck! | 
+           █      | /|______________|
            █      O
            █     /|\\
            █      |
@@ -112,10 +113,10 @@ def draw_hangman(tries):
         """,
         # Head, body, both arms, and left leg
         """
-                      _____________
-           ████████  | Please,     |
-           █      | /| Last chance!|
-           █      O  |_____________|
+                      ______________
+           ████████  | Please,      |
+           █      | /| Last chance! |
+           █      O  |______________|
            █     /|\\
            █      |
            █     / 
@@ -242,10 +243,10 @@ def start_game():
                             guessed_word[i] = hint
                 else:
                     print("No hints available.")
-                continue  # Skip the rest of the loop and ask for input again
+                continue 
             else:
                 print("Not enough points for a hint! You need at least 15 points.")
-                continue  # Skip the rest of the loop and ask for input again
+                continue 
 
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
