@@ -12,16 +12,16 @@ client = gspread.authorize(creds)
 sheet = client.open('hangman-words').sheet1
 
 game_start = '''
-██████████████████████████████████████████████████████████████████████
-█                   Welcome to the hangman challenge!                █
-█                                                                    █
-█   1 - Start Game.                                                  █
-█                                                                    █
-█   2 - Introduction.                                                █
-█                                                                    █
-█   3 - View Scores.                                                 █
-█                                                                    █
-██████████████████████████████████████████████████████████████████████
+    ██████████████████████████████████████████████████████████████████████
+    █                   Welcome to the hangman challenge!                █
+    █                                                                    █
+    █   1 - Start Game.                                                  █
+    █                                                                    █
+    █   2 - Introduction.                                                █
+    █                                                                    █
+    █   3 - View Scores.                                                 █
+    █                                                                    █
+    ██████████████████████████████████████████████████████████████████████
 '''
 win_game = """
 Congratulations! 🎉
@@ -63,13 +63,17 @@ def main():
 
     if choice not in valid_choices:
         print('Invalid selection, try again.')
+
         time.sleep(FEEDBACK_TIME)
         main()
     elif choice == '1':
+        clear_terminal()
         start_game()
     elif choice == '2':
+        clear_terminal()
         instructions()
     elif choice == '3':
+        clear_terminal()
         view_scores()
 
 def instructions():
@@ -225,12 +229,13 @@ def start_game():
 
     while tries > 0 and '_' in guessed_word:
         if time.time() - start_time > 60:
+            clear_terminal()
             print(fail_game)
             print("Time's up! You couldn't guess the word in time.")
             print("The word was:", word)
             store_score(name, score)
             return
-        guess = input("Enter a letter or guess the complete word:\n").lower()
+        guess = input("Enter a letter or guess the complete word: ").lower()
 
         if guess == 'hint':
             if score >= 15:
@@ -250,12 +255,14 @@ def start_game():
 
         if len(guess) == 1 and guess.isalpha():
             if guess in guessed_letters:
+                clear_terminal()
                 print(draw_hangman(tries))
                 print("You've already tried that letter. Try another one.")
                 continue
             guessed_letters.append(guess)
 
             if guess in word:
+                clear_terminal()
                 print("Correct letter!")
                 score += 10
                 for i in range(len(word)):
@@ -263,6 +270,7 @@ def start_game():
                         guessed_word[i] = guess
                 print(draw_hangman(tries))
             else:
+                clear_terminal()
                 print("Wrong letter!")
                 score -= 5
                 tries -= 1
@@ -273,12 +281,14 @@ def start_game():
         elif len(guess) == len(word) and guess.isalpha():
             if guess == word:
                 score += 50
+                clear_terminal()
                 print(win_game)
                 print("You guessed the word:", word)
                 print("Your score:", score)
                 store_score(name, score)
                 return
             else:
+                clear_terminal()
                 print(fail_game)
                 print("Incorrect guess! The word was not:", guess)
                 print("You've been hanged! The word was:", word)
@@ -288,11 +298,13 @@ def start_game():
             print("Invalid input. Please enter either one letter or guess the complete word.")
 
     if '_' not in guessed_word:
+        clear_terminal()
         print(win_game)
         print("You guessed the word:", word)
         print("Your score:", score)
         store_score(name, score)
     else:
+        clear_terminal()
         print(fail_game)
         print("You've been hanged! The word was:", word)
         print("Your score:", score)
