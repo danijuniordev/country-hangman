@@ -76,6 +76,13 @@ def main():
     elif choice == '3':
         view_scores()
 
+def bottom_input():
+    '''
+    Prints a line of '-' and waits for user input before returning to the menu.
+    '''
+    input('Press ENTER to return to the menu...')
+    main()
+
 def instructions():
     '''
     Print game instructions.
@@ -90,14 +97,6 @@ def instructions():
     print('After earning 15 points, you can ask for a hint by typing "hint".')
 
     bottom_input()
-
-def bottom_input():
-    '''
-    Prints a line of '-' and waits for user input before returning to the menu.
-    '''
-    print('-' * 100)
-    input('Press ENTER to return to the menu...')
-    main()
 
 def get_random_word():
     '''
@@ -186,9 +185,6 @@ def draw_hangman(tries):
     return stages[tries]
 
 def store_score(name, score):
-    '''
-    To store score in the google sheet
-    '''
     try:
         score_sheet = client.open('hangman-words').worksheet('Scores')
     except gspread.exceptions.WorksheetNotFound:
@@ -199,9 +195,6 @@ def store_score(name, score):
     score_sheet.append_row([name, score, time.strftime("%Y-%m-%d %H:%M:%S")])
 
 def view_scores():
-    '''
-    Get the score from the google sheet
-    '''
     clear_terminal()
     try:
         score_sheet = client.open('hangman-words').worksheet('Scores')
@@ -246,8 +239,7 @@ def start_game():
             print("Time's up! You couldn't guess the word in time.")
             print("The word was:", word)
             store_score(name, score)
-            bottom_input()
-            return
+            return main()
 
         guess = input("Enter a letter or guess the complete word: ").lower()
 
@@ -300,8 +292,7 @@ def start_game():
                 print("You guessed the word:", word)
                 print("Your score:", score)
                 store_score(name, score)
-                bottom_input()
-                return
+                return main()
             else:
                 clear_terminal()
                 print(fail_game)
@@ -309,8 +300,7 @@ def start_game():
                 print("You've been hanged! The word was:", word)
                 print("Your score:", score)
                 store_score(name, score)
-                bottom_input()
-                return
+                return main()
         else:
             print("Invalid input. Please enter either one letter or guess the complete word.")
 
@@ -320,14 +310,14 @@ def start_game():
         print("You guessed the word:", word)
         print("Your score:", score)
         store_score(name, score)
-        bottom_input()
+        return main()
     else:
         clear_terminal()
         print(fail_game)
         print("You've been hanged! The word was:", word)
         print("Your score:", score)
         store_score(name, score)
-        bottom_input()
+        return main()
 
 def get_hint(word, guessed_word, guessed_letters):
     '''
