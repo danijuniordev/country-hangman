@@ -67,13 +67,10 @@ def main():
         time.sleep(FEEDBACK_TIME)
         main()
     elif choice == '1':
-        clear_terminal()
         start_game()
     elif choice == '2':
-        clear_terminal()
         instructions()
     elif choice == '3':
-        clear_terminal()
         view_scores()
 
 def instructions():
@@ -235,6 +232,7 @@ def start_game():
             print("The word was:", word)
             store_score(name, score)
             return
+
         guess = input("Enter a letter or guess the complete word: ").lower()
 
         if guess == 'hint':
@@ -293,6 +291,7 @@ def start_game():
                 print("Incorrect guess! The word was not:", guess)
                 print("You've been hanged! The word was:", word)
                 print("Your score:", score)
+                store_score(name, score)
                 return
         else:
             print("Invalid input. Please enter either one letter or guess the complete word.")
