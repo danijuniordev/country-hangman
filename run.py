@@ -80,6 +80,7 @@ def bottom_input():
     '''
     Prints a line of '-' and waits for user input before returning to the menu.
     '''
+    print("")
     input('Press ENTER to return to the menu...')
     main()
 
@@ -111,8 +112,9 @@ def draw_hangman(tries):
     '''
     stages = [  # Head, body, both arms, and both legs
         """
-                      ______________       
-           ████████  | oh, my neck! | 
+                      ______________
+                     |    Nooo!!    |       
+           ████████  |   my neck!   | 
            █      | /|______________|
            █      O
            █     /|\\
@@ -123,7 +125,8 @@ def draw_hangman(tries):
         # Head, body, both arms, and left leg
         """
                       ______________
-           ████████  | Please,      |
+                     |              |      
+           ████████  |    Please,   |
            █      | /| Last chance! |
            █      O  |______________|
            █     /|\\
@@ -204,8 +207,9 @@ def view_scores():
             print("No scores available.")
         else:
             scores.sort(key=lambda x: x['Score'], reverse=True)
-            print("High Scores:\n")
+            print("High Scores:")
             for idx, record in enumerate(scores):
+                print("-"*50)
                 print(f"{idx+1}. {record['Name']} - {record['Score']} - {record['Timestamp']}")
     except gspread.exceptions.WorksheetNotFound:
         print("No scores available.")
@@ -216,6 +220,7 @@ def start_game():
     '''
     Start the game
     '''
+    print("")
     name = input("Enter your name: ")
     word = get_random_word()
     guessed_letters = []
@@ -263,6 +268,10 @@ def start_game():
             if guess in guessed_letters:
                 clear_terminal()
                 print(draw_hangman(tries))
+                for i in range(len(word)):
+                    if word[i] == guess:
+                        guessed_word[i] = guess
+                print(" ".join(guessed_word))
                 print("You've already tried that letter. Try another one.")
                 continue
             guessed_letters.append(guess)
