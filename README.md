@@ -24,20 +24,77 @@ Implementing a score system is a great way to enhance the game and add an elemen
 
 - In case you win the game, you will earn 50 points.
 
-![Score List](readme_images/viewscores.jpg)
+![Score List](readme_images/viewscores.png)
 
 ### Hint System:
 
 The hint system is a way to help users guess the word, but before you ask for a hint, you need to have 15 points. If you have 15 points and you want to ask for a hint, it's simple: just type 'hint', and the terminal will input a letter.
 
-![Hint](readme_images/hint.jpg)
+![Hint](readme_images/hint.png)
 
 ## User Experience(UX):
 
-- First time user goals.
+- The goal of this program is to provide the user with a simple, easy-to-understand, and playable game of Hangman that can be enjoyed multiple times without repeating the same challenge.
 
 1. Provide clear and concise instructions at the beginning of the game to guide the player on how to play. Use simple language and step-by-step explanations to ensure that even first-time visitors can understand how to navigate and enjoy the game.
 
 2. Design an intuitive user interface that is easy to navigate and interact with. Use familiar symbols and layouts to guide the player through the game process, making it easy for them to input their guesses, request hints, and track their progress without feeling overwhelmed or confused.
 
 3. Offer feedback and guidance throughout the game to keep the player engaged and informed. Provide immediate feedback when the player makes a guess, indicating whether it was correct or incorrect.
+
+## Existing Features
+
+### Main Menu 
+
+- The main menu show the options available for the user.
+- The options can be selected using the numbers 1 through 3.
+
+![Main menu](readme_images/mainmenu.png)
+
+### Introduction 
+
+- The introduction displays to the user how to play and explains the scoring system.
+
+![Introduction](readme_images/introduction.png)
+
+### View Scores
+
+- Display the list of all scores, with the player who has the highest score at the top.
+
+![List of score](readme_images/scores.png)
+
+### Invalid Input
+
+- If the user enters any invalid input, a message will be displayed.
+
+![Invalid input](readme_images/invalidinput.png)
+
+### The game
+
+- Before the game begins, you need to type in your name.
+
+![Type name](readme_images/typename.png)
+
+- The initial view of the game displays a message, allowing you to input a letter.
+
+![Initial page](readme_images/initialpage.png)
+
+- If you type a wrong letter, a message is displayed in red, and a part of the body is drawn, starting with the head.
+
+![Wrong letter](readme_images/wrongletter.png)
+
+- If you type a correct letter, you will receive a green message and be prompted to input another letter.
+
+![Correct letter](readme_images/correctletter.png)
+
+- After earning 15 points, you can request a hint by typing 'hint'.
+
+![Hint](readme_images/hint.png)
+
+- If you win the game, a green message is displayed along with your score.
+
+![Win game](readme_images/wingame.png)
+
+- If you lose the game, a red message is displayed along with your score.
+
+![Lose game](readme_images/losegame.png)
