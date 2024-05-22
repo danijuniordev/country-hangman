@@ -18,16 +18,16 @@ BLUE = '\033[94m'
 RESET = '\033[0m'
 
 game_start = '''
-    ██████████████████████████████████████████████████████████████████████
-    █                   Welcome to the hangman challenge!                █
-    █                                                                    █
-    █   1 - Start Game.                                                  █
-    █                                                                    █
-    █   2 - Introduction.                                                █
-    █                                                                    █
-    █   3 - View Scores.                                                 █
-    █                                                                    █
-    ██████████████████████████████████████████████████████████████████████
+      ██████████████████████████████████████████████████████████████████████
+      █                   Welcome to the hangman challenge!                █
+      █                                                                    █
+      █   1 - Start Game.                                                  █
+      █                                                                    █
+      █   2 - Introduction.                                                █
+      █                                                                    █
+      █   3 - View Scores.                                                 █
+      █                                                                    █
+      ██████████████████████████████████████████████████████████████████████
 '''
 win_game = f"""
 {GREEN}Congratulations! 🎉
@@ -241,14 +241,14 @@ def start_game():
     print("Guess the country:")
     print(" ".join(guessed_word))
     print("\nYou have 1 minute to guess.")
-    print("Remember, after earning 15 points, you can ask for a hint by typing 'hint'.")
+    print(f"Remember, after earning {RED}15 points{RESET}, you can ask for a hint by typing {BLUE}'hint'{RESET}.")
 
     while tries > 0 and '_' in guessed_word:
         if time.time() - start_time > 60:
             clear_terminal()
             print(fail_game)
-            print("Time's up! You couldn't guess the word in time.")
-            print(f"The word was: {BLUE} {RESET}", word)
+            print(f"{RED}Time's up! You couldn't guess the word in time.{RESET}")
+            print(f"The word was:{BLUE}{word}{RESET}")
             store_score(name, score)
             bottom_input()
 
