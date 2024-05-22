@@ -49,6 +49,12 @@ Don't give up! The next game could be your big win.
 ## Variables
 FEEDBACK_TIME = 2
 
+# Colour
+RED = '\033[91m'
+GREEN = '\033[92m'
+BLUE = '\033[94m'
+RESET = '\033[0m'
+
 def clear_terminal():
     '''
     Clears the terminal.
@@ -242,9 +248,9 @@ def start_game():
             clear_terminal()
             print(fail_game)
             print("Time's up! You couldn't guess the word in time.")
-            print("The word was:", word)
+            print(f"The word was: {BLUE} {RESET}", word)
             store_score(name, score)
-            return main()
+            bottom_input()
 
         guess = input("Enter a letter or guess the complete word: ").lower()
 
@@ -253,7 +259,7 @@ def start_game():
                 hint = get_hint(word, guessed_word, guessed_letters)
                 if hint:
                     score -= 15
-                    print(f"Here's your hint! The letter '{hint}' is in the word.")
+                    print(f"Here's your hint! The letter {BLUE}'{hint}'{RESET} is in the word.")
                     for i in range(len(word)):
                         if word[i] == hint:
                             guessed_word[i] = hint
@@ -278,7 +284,7 @@ def start_game():
 
             if guess in word:
                 clear_terminal()
-                print("Correct letter!")
+                print(f"{GREEN}Correct letter!{RESET}")
                 score += 10
                 for i in range(len(word)):
                     if word[i] == guess:
@@ -286,7 +292,7 @@ def start_game():
                 print(draw_hangman(tries))
             else:
                 clear_terminal()
-                print("Wrong letter!")
+                print(f"{RED}Wrong letter!{RESET}")
                 score -= 5
                 tries -= 1
                 print(draw_hangman(tries))
@@ -298,35 +304,35 @@ def start_game():
                 score += 50
                 clear_terminal()
                 print(win_game)
-                print("You guessed the word:", word)
+                print(f"You guessed the word:{GREEN}{word}{RESET}")
                 print("Your score:", score)
                 store_score(name, score)
-                return main()
+                bottom_input()
             else:
                 clear_terminal()
                 print(fail_game)
-                print("Incorrect guess! The word was not:", guess)
-                print("You've been hanged! The word was:", word)
+                print(f"Incorrect guess! The word was not:{RED}{guess}{RESET}")
+                print(f"You've been hanged! The word was:{BLUE}{word}{RESET}")
                 print("Your score:", score)
                 store_score(name, score)
-                return main()
+                bottom_input()
         else:
             print("Invalid input. Please enter either one letter or guess the complete word.")
 
     if '_' not in guessed_word:
         clear_terminal()
         print(win_game)
-        print("You guessed the word:", word)
+        print(f"You guessed the word:{GREEN}{word}{RESET}")
         print("Your score:", score)
         store_score(name, score)
-        return main()
+        bottom_input()
     else:
         clear_terminal()
         print(fail_game)
-        print("You've been hanged! The word was:", word)
+        print(f"You've been hanged! The word was:{BLUE}{word}{RESET}")
         print("Your score:", score)
         store_score(name, score)
-        return main()
+        bottom_input()
 
 def get_hint(word, guessed_word, guessed_letters):
     '''
