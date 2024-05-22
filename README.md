@@ -1,6 +1,6 @@
 # Country Hangman
 
-![Hangman Game](docs/readme_images/hangman.jpg)
+![Hangman Game](readme_images/hangman.jpg)
 
 Country Hangman is a classic Python game where you can test your knowledge of geography. The game allows players to guess a hidden word, which is the name of a country. Each player has 6 attempts to guess the word correctly.
 
@@ -24,11 +24,20 @@ Implementing a score system is a great way to enhance the game and add an elemen
 
 - In case you win the game, you will earn 50 points.
 
-![Score List](docs/readme_images/viewscores.jpg)
+![Score List](readme_images/viewscores.jpg)
 
 ### Hint System:
 
 The hint system is a way to help users guess the word, but before you ask for a hint, you need to have 15 points. If you have 15 points and you want to ask for a hint, it's simple: just type 'hint', and the terminal will input a letter.
 
-![Hint](docs/readme_images/hint.jpg)
+![Hint](readme_images/hint.jpg)
 
+## User Experience(UX):
+
+- First time user goals.
+
+1. Provide clear and concise instructions at the beginning of the game to guide the player on how to play. Use simple language and step-by-step explanations to ensure that even first-time visitors can understand how to navigate and enjoy the game.
+
+2. Design an intuitive user interface that is easy to navigate and interact with. Use familiar symbols and layouts to guide the player through the game process, making it easy for them to input their guesses, request hints, and track their progress without feeling overwhelmed or confused.
+
+3. Offer feedback and guidance throughout the game to keep the player engaged and informed. Provide immediate feedback when the player makes a guess, indicating whether it was correct or incorrect.
