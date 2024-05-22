@@ -24,13 +24,9 @@ Implementing a score system is a great way to enhance the game and add an elemen
 
 - In case you win the game, you will earn 50 points.
 
-![Score List](readme_images/viewscores.png)
-
 ### Hint System:
 
 The hint system is a way to help users guess the word, but before you ask for a hint, you need to have 15 points. If you have 15 points and you want to ask for a hint, it's simple: just type 'hint', and the terminal will input a letter.
-
-![Hint](readme_images/hint.png)
 
 ## User Experience(UX):
 
