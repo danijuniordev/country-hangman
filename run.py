@@ -11,6 +11,12 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('creds.json', scope)
 client = gspread.authorize(creds)
 sheet = client.open('hangman-words').sheet1
 
+# Colour
+RED = '\033[91m'
+GREEN = '\033[92m'
+BLUE = '\033[94m'
+RESET = '\033[0m'
+
 game_start = '''
     ██████████████████████████████████████████████████████████████████████
     █                   Welcome to the hangman challenge!                █
@@ -23,8 +29,8 @@ game_start = '''
     █                                                                    █
     ██████████████████████████████████████████████████████████████████████
 '''
-win_game = """
-Congratulations! 🎉
+win_game = f"""
+{GREEN}Congratulations! 🎉
 
 You demonstrated incredible talent and knowledge by winning the hangman game! 
 Your skill in guessing the words was spectacular. Keep it up, and you will certainly 
@@ -32,11 +38,11 @@ continue to excel in any challenge you face.
 
 We are all very proud of you. Enjoy this victory!
 
-Celebrate a lot, champion!
+Celebrate a lot, champion!{RESET}
 """
 
-fail_game = """ 
-Hello,
+fail_game = f""" 
+{RED}Hello,
 
 Unfortunately, this time you didn't manage to win the hangman game. 
 But don't be discouraged! Every challenge is an opportunity for learning and growth.
@@ -44,16 +50,10 @@ But don't be discouraged! Every challenge is an opportunity for learning and gro
 Even though you didn't win today, remember that perseverance and consistent practice are key to achieving success in any endeavor. 
 Keep practicing, and I'm sure you'll improve more and more.
 
-Don't give up! The next game could be your big win.
+Don't give up! The next game could be your big win.{RESET}
 """
 ## Variables
 FEEDBACK_TIME = 2
-
-# Colour
-RED = '\033[91m'
-GREEN = '\033[92m'
-BLUE = '\033[94m'
-RESET = '\033[0m'
 
 def clear_terminal():
     '''
@@ -87,7 +87,7 @@ def bottom_input():
     Prints a line of '-' and waits for user input before returning to the menu.
     '''
     print("")
-    input('Press ENTER to return to the menu...')
+    input(f'Press {BLUE}ENTER{RESET} to return to the menu...')
     main()
 
 def instructions():
@@ -100,8 +100,8 @@ def instructions():
     print('In this thrilling game, your objective is to guess the secret country before the hangman is fully drawn.')
     print('Each incorrect letter choice brings you closer to the hangman’s fate, so choose wisely!\n')
     print('You have 1 minute to guess the country.')
-    print('For each correct letter, you earn 10 points, and for each incorrect letter, you lose 5 points.')
-    print('After earning 15 points, you can ask for a hint by typing "hint".')
+    print(f'For each correct letter, you earn {GREEN}10 points{RESET}, and for each incorrect letter, you lose {RED}5 points{RESET}.')
+    print(f'After earning {GREEN}15 points{RESET}, you can ask for a hint by typing {BLUE}"hint"{RESET}.')
 
     bottom_input()
 
@@ -304,16 +304,16 @@ def start_game():
                 score += 50
                 clear_terminal()
                 print(win_game)
-                print(f"You guessed the word:{GREEN}{word}{RESET}")
-                print("Your score:", score)
+                print(f"You guessed the word: {GREEN}{word}{RESET}")
+                print(f"Your score:{BLUE}{score}{RESET}")
                 store_score(name, score)
                 bottom_input()
             else:
                 clear_terminal()
                 print(fail_game)
-                print(f"Incorrect guess! The word was not:{RED}{guess}{RESET}")
-                print(f"You've been hanged! The word was:{BLUE}{word}{RESET}")
-                print("Your score:", score)
+                print(f"Incorrect guess! The word was not: {RED}{guess}{RESET}")
+                print(f"You've been hanged! The word was: {BLUE}{word}{RESET}")
+                print(f"Your score:{BLUE}{score}{RESET}")
                 store_score(name, score)
                 bottom_input()
         else:
@@ -322,15 +322,15 @@ def start_game():
     if '_' not in guessed_word:
         clear_terminal()
         print(win_game)
-        print(f"You guessed the word:{GREEN}{word}{RESET}")
-        print("Your score:", score)
+        print(f"You guessed the word: {GREEN}{word}{RESET}")
+        print(f"Your score:{BLUE}{score}{RESET}")
         store_score(name, score)
         bottom_input()
     else:
         clear_terminal()
         print(fail_game)
-        print(f"You've been hanged! The word was:{BLUE}{word}{RESET}")
-        print("Your score:", score)
+        print(f"You've been hanged! The word was: {BLUE}{word}{RESET}")
+        print(f"Your score:{BLUE}{score}{RESET}")
         store_score(name, score)
         bottom_input()
 
