@@ -99,4 +99,119 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 - If the time is over, a red message is displayed along with your score.
 
-![Lose game](readme_images/timesover.png)
+![Lose game](readme_images/timesup.png)
+
+## Flowchart
+
+- For the development and logic decision maker has been draw a flowchart where show all user and system interaction flow.
+
+![Flowchart](readme_images/flow.png)
+
+## Technologies
+
+- **Python:** Backend Development
+- **Visual Studio Code:** Local IDE.
+- **GitHub:** Source code hosting and deployment.
+- **Git:** Version control.
+- **Heroku:** Cloud Deployment.
+- **Google Cloud Services** APIs to access and manipulate cloud based files
+- **Google Drive** Store data in a googlesheet 
+- **Google Sheet** Data Storage
+- **Miro** Flowchart and design thinking
+
+## Libraries
+
+- **random** Used to generate random numbers or select random elements from a list.
+- **gspread** Used to access Google Sheets documents throughout the application, allowing for data access and editing.
+- **ServiceAccountCredentials** Used to provide service account credentials for authentication with the Google Sheets API.
+- **os** Used to interact with the operating system.
+- **time** Used to manipulate time-related functions, such as delays and measuring time intervals.
+- **threading** Used to create and manage threads, enabling concurrent execution of tasks within the application.
+
+## Google Cloud
+
+- To the data management strategy, use the Google Cloud robust APIs to store and manipulate data effeciently. Specifically, rely on two APIs provided by GoogleCloud:
+    the Google Drive API and the Google Sheets API. These APIs empower us to seamlessly interact with data stored on Google Drive and within Google Sheets programmatically.
+    To ensure the utmost privacy and security to the data, has been implemented a sophisticated approach using service accounts.
+
+### Google Drive API
+
+- The Google Drive API allows developers to interact with files and folders stored on Google Drive programmatically. It provides methods for uploading, downloading, searching, and modifying files, as well as managing permissions and metadata.
+
+![Google Drive API](readme_images/google-drive.png)
+
+### Google Sheets API
+
+- The Google Sheets API enables developers to read, write, and manipulate Google Sheets data using code. It allows for tasks such as creating new sheets, updating existing ones, inserting and deleting rows and columns, and formatting cells.
+
+![Google Sheet API](readme_images/google-sheet.png)
+
+## Deployment
+
+### Github Forking
+
+- **Forking the GitHub Repository**
+  - If you want to make changes to your repository without affecting it, you can make a copy of it by 'Forking' it. This ensures your original repository remains unchanged.
+
+  1. Find the relevant GitHub repository
+  2. In the top right corner of the page, click the Fork button (under your account)
+  3. Your repository has now been 'Forked' and you have a copy to work on
+
+- **Cloning the GitHub Repository**
+  - Cloning your repository will allow you to download a local version of the repository to be worked on. Cloning can also be a great way to backup your work.
+
+  1. Find the relevant GitHub repository
+  2. Press the arrow on the Code button
+  3. Copy the link that is shown in the drop-down
+  4. Open the terminal 
+  5. Move to the folder you want clone it
+  6. In the terminal type 'git clone' & then paste the link you copied in GitHub
+  7. Press enter and your local clone will be created.
+- Live link: [GitHub Link](https://github.com/danijuniordev/country-hangman.git)
+
+### Heroku Deployment
+
+- **Creating Requirements.txt**
+    - To heroku be able to install the required dependencies is necessary to create the file where will be listed what is needed to run the project.
+
+    1. Create a file requirements.txt.
+    2. Run the command: pip3 freeze >requirements.txt.
+    3. Check if the file has been updated like the image bellow.
+
+![Requirements.txt](readme_images/requirements.png)
+
+- **Creating an Application with Heroku**
+    - To be able to  deploy and run the application on heroku plataform, is necessary follow a few steps:
+
+    1. Login or create an account on Heroku website.
+    2. Click on create a new app.
+
+![New app](readme_images/new-app.png)
+
+3. After create the new app, you need to configure the settings.
+4. The first setting which need to be done is add your CREDS.json info to the plataform so it will be able to access the googlecloud service account.
+
+![Settings CREDS](readme_images/creds.png)
+
+5. Add the Buildpacks necessary to run the application, in this case python and nodejs in this sequence.
+
+![Buildpacks](readme_images/buildpacks.png)
+
+6. After done the settings we move to the deploy tab where we will configure the deployment setup.
+7. Connect your Github.
+8. Select your repository on github.
+9. Connect to the repository.
+
+![Github](readme_images/github.png)
+
+10. After all setting above been done you can select to deploy automatic or manual.
+
+![Deploy](readme_images/manualdeploy.png)
+
+11. After press to deploy your project if all settings are working you should see it building the application.
+
+![Project being Deployed](readme_images/deploying.png)
+
+12. After all steps of deployment will show a button View, where you can click to open a new tab with the application.
+
+![Deploy done](readme_images/deplyed.png)
