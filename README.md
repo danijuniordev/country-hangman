@@ -53,11 +53,11 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 ![Invalid input](readme_images/invalidinput.png)
 
-### Introduction 
+### Instructions 
 
-- The introduction displays to the user how to play and explains the scoring system.
+- The instructions displays to the user how to play and explains the scoring system.
 
-![Introduction](readme_images/introduction.png)
+![Instructions](readme_images/instructions.png)
 
 ### View Scores
 
@@ -114,7 +114,7 @@ The hint system is a way to help users guess the word, but before you ask for a 
 | :---------------------------------: | :------------------------------:|
 | Be able to start the game when the user types 1 as input. | Pass |
 | Only start the game after typing a name, or it will prompt you to do so. | Pass |
-| Be able to read an introduction when users type 2 as input. | Pass |
+| Be able to read an instructions when users type 2 as input. | Pass |
 | Be able to view the scores when the user types 3 as input. | Pass |
 | Input invalid character. | Pass |
 | Be able to request a hint only after earning 15 points. | Pass |
@@ -245,8 +245,12 @@ The hint system is a way to help users guess the word, but before you ask for a 
 ## Credits
 
 **Base Code reference** 
-
    - [Code institute Love Sandwiches Walkthrough](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LS101+2021_T1/courseware/293ee9d8ff3542d3b877137ed81b9a5b/58d3e90f9a2043908c62f31e51c15deb/)
+   - [P3-Hangman-Python-Terminal-Game](https://github.com/paulio11/P3-Hangman-Python-Terminal-Game.git)
 
 **My mentor**
  - [Dick Vlaanderen](https://github.com/dickvla) 
+
+ **Readme References**
+- [Volnei Oee Calculator GitHub](https://github.com/Volneirj/oee-calculator.git)
+- [CI-PP3_hangman](https://github.com/Kay-ddggxh/CI-PP3_hangman.git)

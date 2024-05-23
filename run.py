@@ -23,7 +23,7 @@ game_start = '''
       █                                                                    █
       █   1 - Start Game.                                                  █
       █                                                                    █
-      █   2 - Introduction.                                                █
+      █   2 - Instructions.                                                █
       █                                                                    █
       █   3 - View Scores.                                                 █
       █                                                                    █
