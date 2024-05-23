@@ -118,15 +118,18 @@ The hint system is a way to help users guess the word, but before you ask for a 
 | Be able to view the scores when the user types 3 as input. | Pass |
 | Input invalid character. | Pass |
 | Be able to request a hint only after earning 15 points. | Pass |
+| Be able to guess the entire word.| Pass |
 | See which letters I have already guessed. | Pass |
 | This letter has already been tried. | Pass |
-| Display incorrect or correct letter and draw a part of the body. | Pass |
+| Display incorrect letter and draw a part of the body. | Pass |
+| Display the correct letter and show its position in the word. | Pass |
 | The game is over after the drawing is fully completed. | Pass |
 | Display the country and the score after finishing the game. | Pass |
 | Every page has an option to press enter and return to the main menu. | Pass |
 | After 1 minute, the time is up. | Pass |
 | The score system is working. | Pass |
 | Get a random country from Google Sheets. | Pass |
+| Store the name and score in the Google Sheets. | Pass |
 
 ### Debugging
 
