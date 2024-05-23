@@ -282,18 +282,18 @@ def start_game():
 
             if guess in word:
                 clear_terminal()
-                print(f"{GREEN}Correct letter!{RESET}")
                 score += 10
                 for i in range(len(word)):
                     if word[i] == guess:
                         guessed_word[i] = guess
                 print(draw_hangman(tries))
+                print(f"{GREEN}Correct letter!{RESET}")
             else:
                 clear_terminal()
-                print(f"{RED}Wrong letter!{RESET}")
                 score -= 5
                 tries -= 1
                 print(draw_hangman(tries))
+                print(f"{RED}Wrong letter!{RESET}")
 
             print("Letters tried:", ", ".join(guessed_letters))
             print(" ".join(guessed_word))
