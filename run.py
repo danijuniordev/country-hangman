@@ -236,8 +236,8 @@ def start_game():
     clear_terminal()
     print("Welcome to the Hangman Game!\n")
     print(draw_hangman(tries))
-    print("Guess the country:")
-    print(" ".join(guessed_word))
+    print("Guess the country:\n")
+    print(" \n".join(guessed_word))
     print("You have 1 minute to guess.\n")
     print(f"Remember, after earning {RED}15 points{RESET}, you can ask for a hint by typing {BLUE}'hint'{RESET}.")
 
@@ -275,8 +275,8 @@ def start_game():
                 for i in range(len(word)):
                     if word[i] == guess:
                         guessed_word[i] = guess
-                print("Letters tried:", ", \n".join(guessed_letters))
-                print(" \n".join(guessed_word))
+                print("Letters tried:\n", ", ".join(guessed_letters))
+                print(" ".join(guessed_word))
                 print("You've already tried that letter. Try another one.")
                 continue
             guessed_letters.append(guess)
