@@ -250,7 +250,7 @@ def start_game():
             store_score(name, score)
             bottom_input()
 
-        guess = input("Enter a letter or guess the complete word: \n").lower()
+        guess = input("Enter a letter or guess the complete word: ").lower()
 
         if guess == 'hint':
             if score >= 15:
@@ -275,7 +275,7 @@ def start_game():
                 for i in range(len(word)):
                     if word[i] == guess:
                         guessed_word[i] = guess
-                print("Letters tried:", ", \n".join(guessed_letters))
+                print("Letters tried:", ", ".join(guessed_letters))
                 print(" ".join(guessed_word))
                 print("\nYou've already tried that letter. Try another one.\n")
                 continue
@@ -296,7 +296,7 @@ def start_game():
                 print(draw_hangman(tries))
                 print(f"{RED}Wrong letter!\n{RESET}")
 
-            print("Letters tried:", ", \n".join(guessed_letters))
+            print("Letters tried:", ", ".join(guessed_letters))
             print(" ".join(guessed_word))
         elif len(guess) == len(word) and guess.isalpha():
             if guess == word:
