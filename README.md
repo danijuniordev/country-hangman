@@ -98,9 +98,9 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 ![Lose game](readme_images/losegame.png)
 
-- If the time is over, a red message is displayed along with your score.
+- If the time is over, a red message is displayed.
 
-![Lose game](readme_images/timesup.png)
+![Times up](readme_images/timesup.png)
 
 ## Flowchart
 
@@ -139,15 +139,15 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 ## Technologies
 
-- **Python:** Backend Development
+- **Python:** Backend Development.
 - **Visual Studio Code:** Local IDE.
 - **GitHub:** Source code hosting and deployment.
 - **Git:** Version control.
 - **Heroku:** Cloud Deployment.
-- **Google Cloud Services** APIs to access and manipulate cloud based files
-- **Google Drive** Store data in a googlesheet 
-- **Google Sheet** Data Storage
-- **Miro** Flowchart and design thinking
+- **Google Cloud Services** APIs to access and manipulate cloud based files.
+- **Google Drive** Store data in a googlesheet.
+- **Google Sheet** Data Storage.
+- **Miro** Flowchart and design thinking.
 
 ## Libraries
 
