@@ -275,8 +275,8 @@ def start_game():
                 for i in range(len(word)):
                     if word[i] == guess:
                         guessed_word[i] = guess
-                print("Letters tried:", ", ".join(guessed_letters))
-                print(" ".join(guessed_word))
+                print("Letters tried:", ", \n".join(guessed_letters))
+                print(" \n".join(guessed_word))
                 print("You've already tried that letter. Try another one.")
                 continue
             guessed_letters.append(guess)
@@ -288,13 +288,13 @@ def start_game():
                     if word[i] == guess:
                         guessed_word[i] = guess
                 print(draw_hangman(tries))
-                print(f"{GREEN}Correct letter!{RESET}")
+                print(f"{GREEN}Correct letter!\n{RESET}")
             else:
                 clear_terminal()
                 score -= 5
                 tries -= 1
                 print(draw_hangman(tries))
-                print(f"{RED}Wrong letter!{RESET}")
+                print(f"{RED}Wrong letter!\n{RESET}")
 
             print("Letters tried:", ", ".join(guessed_letters))
             print(" ".join(guessed_word))
