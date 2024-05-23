@@ -215,3 +215,12 @@ The hint system is a way to help users guess the word, but before you ask for a 
 12. After all steps of deployment will show a button View, where you can click to open a new tab with the application.
 
 ![Deploy done](readme_images/deplyed.png)
+
+## Credits
+
+**Base Code reference** 
+
+   - [Code institute Love Sandwiches Walkthrough](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LS101+2021_T1/courseware/293ee9d8ff3542d3b877137ed81b9a5b/58d3e90f9a2043908c62f31e51c15deb/)
+
+**My mentor**
+ - [Dick Vlaanderen](https://github.com/dickvla) 
