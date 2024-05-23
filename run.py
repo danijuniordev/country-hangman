@@ -275,7 +275,7 @@ def start_game():
     print(" ".join(guessed_word))
     print("\nYou have 1 minute to guess.\n")
     print(f"After earning {RED}15 points{RESET}\n")
-    print(f"You can ask for a hint by typing {BLUE}'hint'{RESET}.\n")
+    print(f"You can ask for a hint by typing {BLUE}'hint'{RESET}.")
 
     while tries > 0 and '_' in guessed_word:
         if time.time() - start_time > 60:
