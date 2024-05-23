@@ -47,6 +47,12 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 ![Main menu](readme_images/mainpage.png)
 
+### Invalid Input
+
+- If the user enters any invalid input, a message will be displayed.
+
+![Invalid input](readme_images/invalidinput.png)
+
 ### Introduction 
 
 - The introduction displays to the user how to play and explains the scoring system.
@@ -58,12 +64,6 @@ The hint system is a way to help users guess the word, but before you ask for a 
 - Display the list of all scores, with the player who has the highest score at the top.
 
 ![List of score](readme_images/scores.png)
-
-### Invalid Input
-
-- If the user enters any invalid input, a message will be displayed.
-
-![Invalid input](readme_images/invalidinput.png)
 
 ### The game
 
@@ -126,7 +126,6 @@ The hint system is a way to help users guess the word, but before you ask for a 
 - **ServiceAccountCredentials** Used to provide service account credentials for authentication with the Google Sheets API.
 - **os** Used to interact with the operating system.
 - **time** Used to manipulate time-related functions, such as delays and measuring time intervals.
-- **threading** Used to create and manage threads, enabling concurrent execution of tasks within the application.
 
 ## Google Cloud
 

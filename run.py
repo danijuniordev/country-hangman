@@ -3,7 +3,6 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import os
 import time
-import threading
 
 # Access to Google Sheet
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -137,9 +136,9 @@ def draw_hangman(tries):
            ████████  |   my neck!   | 
            █      | /|______________|
            █      O
-           █     /|\\
+           █     /|\
            █      |
-           █     / \\
+           █     / \
            -
         """,
         # Head, body, both arms, and left leg
@@ -149,7 +148,7 @@ def draw_hangman(tries):
            ████████  |    Please,   |
            █      | /| Last chance! |
            █      O  |______________|
-           █     /|\\
+           █     /|\
            █      |
            █     / 
            -
@@ -159,7 +158,7 @@ def draw_hangman(tries):
            ████████
            █      |
            █      O
-           █     /|\\
+           █     /|\
            █      |
            █      
            -
@@ -208,6 +207,9 @@ def draw_hangman(tries):
     return stages[tries]
 
 def store_score(name, score):
+    '''
+    Used to store the scores on the googlesheet
+    '''
     try:
         score_sheet = client.open('hangman-words').worksheet('Scores')
     except gspread.exceptions.WorksheetNotFound:
@@ -218,6 +220,9 @@ def store_score(name, score):
     score_sheet.append_row([name, score, time.strftime("%Y-%m-%d %H:%M:%S")])
 
 def view_scores():
+    '''
+    Used to display the scores
+    '''
     clear_terminal()
     try:
         score_sheet = client.open('hangman-words').worksheet('Scores')
@@ -241,7 +246,9 @@ def start_game():
     Start the game
     '''
     print("")
-    name = input("Enter your name: ")
+    name = ""
+    while not name.strip():
+        name = input("Enter your name: ").strip()
     word = get_random_word()
     guessed_letters = []
     guessed_word = ['_'] * len(word)
