@@ -1,6 +1,6 @@
 # Country Hangman
 
-![Hangman Game](readme_images/hangman.jpg)
+![Hangman Game](readme_images/mainpage.png)
 
 Country Hangman is a classic Python game where you can test your knowledge of geography. The game allows players to guess a hidden word, which is the name of a country. Each player has 6 attempts to guess the word correctly.
 
@@ -45,7 +45,7 @@ The hint system is a way to help users guess the word, but before you ask for a 
 - The main menu show the options available for the user.
 - The options can be selected using the numbers 1 through 3.
 
-![Main menu](readme_images/mainmenu.png)
+![Main menu](readme_images/mainpage.png)
 
 ### Introduction 
 
@@ -69,7 +69,7 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 - Before the game begins, you need to type in your name.
 
-![Type name](readme_images/typename.png)
+![Type name](readme_images/name.png)
 
 - The initial view of the game displays a message, allowing you to input a letter.
 
@@ -77,7 +77,7 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 - If you type a wrong letter, a message is displayed in red, and a part of the body is drawn, starting with the head.
 
-![Wrong letter](readme_images/wrongletter.png)
+![Wrong letter](readme_images/incorrectletter.png)
 
 - If you type a correct letter, you will receive a green message and be prompted to input another letter.
 
@@ -85,12 +85,18 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 - After earning 15 points, you can request a hint by typing 'hint'.
 
+![Hint](readme_images/notenoughforhint.png)
+
 ![Hint](readme_images/hint.png)
 
 - If you win the game, a green message is displayed along with your score.
 
-![Win game](readme_images/wingame.png)
+![Win game](readme_images/wongame.png)
 
 - If you lose the game, a red message is displayed along with your score.
 
 ![Lose game](readme_images/losegame.png)
+
+- If the time is over, a red message is displayed along with your score.
+
+![Lose game](readme_images/timesover.png)
