@@ -238,14 +238,14 @@ def start_game():
     print(draw_hangman(tries))
     print("Guess the country:")
     print(" ".join(guessed_word))
-    print("\nYou have 1 minute to guess.")
+    print("You have 1 minute to guess.\n")
     print(f"Remember, after earning {RED}15 points{RESET}, you can ask for a hint by typing {BLUE}'hint'{RESET}.")
 
     while tries > 0 and '_' in guessed_word:
         if time.time() - start_time > 60:
             clear_terminal()
             print(fail_game)
-            print(f"{RED}Time's up! You couldn't guess the word in time.{RESET}")
+            print(f"{RED}Time's up! You couldn't guess the word in time.\n{RESET}")
             print(f"The word was:{BLUE}{word}{RESET}")
             store_score(name, score)
             bottom_input()
@@ -275,6 +275,7 @@ def start_game():
                 for i in range(len(word)):
                     if word[i] == guess:
                         guessed_word[i] = guess
+                print("Letters tried:", ", ".join(guessed_letters))
                 print(" ".join(guessed_word))
                 print("You've already tried that letter. Try another one.")
                 continue
@@ -302,16 +303,16 @@ def start_game():
                 score += 50
                 clear_terminal()
                 print(win_game)
-                print(f"You guessed the word: {GREEN}{word}{RESET}")
+                print(f"You guessed the word: {GREEN}{word}{RESET}\n")
                 print(f"Your score:{BLUE}{score}{RESET}")
                 store_score(name, score)
                 bottom_input()
             else:
                 clear_terminal()
                 print(fail_game)
-                print(f"Incorrect guess! The word was not: {RED}{guess}{RESET}")
-                print(f"You've been hanged! The word was: {BLUE}{word}{RESET}")
-                print(f"Your score:{BLUE}{score}{RESET}")
+                print(f"Incorrect guess! The word was not: {RED}{guess}{RESET}\n")
+                print(f"You've been hanged! The word was: {BLUE}{word}{RESET}\n")
+                print(f"Your score:{BLUE}{score}{RESET}\n")
                 store_score(name, score)
                 bottom_input()
         else:
@@ -320,14 +321,14 @@ def start_game():
     if '_' not in guessed_word:
         clear_terminal()
         print(win_game)
-        print(f"You guessed the word: {GREEN}{word}{RESET}")
+        print(f"You guessed the word: {GREEN}{word}{RESET}\n")
         print(f"Your score:{BLUE}{score}{RESET}")
         store_score(name, score)
         bottom_input()
     else:
         clear_terminal()
         print(fail_game)
-        print(f"You've been hanged! The word was: {BLUE}{word}{RESET}")
+        print(f"You've been hanged! The word was: {BLUE}{word}{RESET}\n")
         print(f"Your score:{BLUE}{score}{RESET}")
         store_score(name, score)
         bottom_input()
