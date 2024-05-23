@@ -68,6 +68,7 @@ The hint system is a way to help users guess the word, but before you ask for a 
 ### The game
 
 - Before the game begins, you need to type in your name.
+- In case you don't input your name, it will prompt you to do so.
 
 ![Type name](readme_images/name.png)
 
@@ -109,9 +110,7 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 ## Test Table
 
-## Main program
-
-| Expectation | Result |
+| Expected Results | Result |
 | :---------------------------------: | :------------------------------:|
 | Be able to start the game when the user types 1 as input. | Pass |
 | Only start the game after typing a name, or it will prompt you to do so. | Pass |
@@ -128,6 +127,12 @@ The hint system is a way to help users guess the word, but before you ask for a 
 | After 1 minute, the time is up. | Pass |
 | The score system is working. | Pass |
 | Get a random country from Google Sheets. | Pass |
+
+### Debugging
+
+- [CI Python Linter - Code institute](https://pep8ci.herokuapp.com/)
+
+![Python LinterI](readme_images/validator.png)
 
 ## Technologies
 

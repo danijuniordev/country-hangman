@@ -281,7 +281,7 @@ def start_game():
         if time.time() - start_time > 60:
             clear_terminal()
             print(times_over)
-            print(f"The word was:{BLUE}{word}{RESET}")
+            print(f"The word was: {BLUE}{word}{RESET}")
             store_score(name, score)
             bottom_input()
 
@@ -293,7 +293,7 @@ def start_game():
                 if hint:
                     score -= 15
                     print(f"\nHere's your hint!\n")
-                    print(f"The letter {BLUE}'{hint}'{RESET}.\n")
+                    print(f"The letter {BLUE}'{hint}'{RESET}.")
                     for i in range(len(word)):
                         if word[i] == hint:
                             guessed_word[i] = hint
