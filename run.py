@@ -44,12 +44,28 @@ win_game = f"""
 
 fail_game = f""" 
 {RED}
-  ___    __    __  __  ____    _____  _  _  ____  ____||
- / __)  /__\  (  \/  )( ___)  (  _  )( \/ )( ___)(  _ \ 
-( (_-. /(__)\  )    (  )__)    )(_)(  \  /  )__)  )   / 
- \___/(__)(__)(_/\/\_)(____)  (_____)  \/  (____)(_)\_)  
+   _____                                                              _ 
+  / ____|                                                            | |
+ | |  __    __ _   _ __ ___     ___      ___   __   __   ___   _ __  | |
+ | | |_ |  / _` | | '_ ` _ \   / _ \    / _ \  \ \ / /  / _ \ | '__| | |
+ | |__| | | (_| | | | | | | | |  __/   | (_) |  \ V /  |  __/ | |    |_|
+  \_____|  \__,_| |_| |_| |_|  \___|    \___/    \_/    \___| |_|    (_) 
 {RESET}
 """
+
+times_over = f""" 
+{RED}
+   _______   _                                              _ 
+ |__   __| (_)                                            | |
+    | |     _   _ __ ___     ___   ___     _   _   _ __   | |
+    | |    | | | '_ ` _ \   / _ \ / __|   | | | | | '_ \  | |
+    | |    | | | | | | | | |  __/ \__ \   | |_| | | |_) | |_|
+    |_|    |_| |_| |_| |_|  \___| |___/    \__,_| | .__/  (_)
+                                                  | |        
+                                                  |_|        
+{RESET}
+"""
+
 ## Variables
 FEEDBACK_TIME = 2
 
@@ -244,7 +260,7 @@ def start_game():
     while tries > 0 and '_' in guessed_word:
         if time.time() - start_time > 60:
             clear_terminal()
-            print(fail_game)
+            print(times_over)
             print(f"{RED}Time's up! You couldn't guess the word in time.\n{RESET}")
             print(f"The word was:{BLUE}{word}{RESET}")
             store_score(name, score)
