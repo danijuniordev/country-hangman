@@ -238,8 +238,8 @@ def start_game():
     print(draw_hangman(tries))
     print("Guess the country:\n")
     print(" ".join(guessed_word))
-    print("You have 1 minute to guess.\n")
-    print(f"Remember, after earning {RED}15 points{RESET}, you can ask for a hint by typing {BLUE}'hint'\n{RESET}.")
+    print("\nYou have 1 minute to guess.\n")
+    print(f"Remember, after earning {RED}15 points{RESET}, you can ask for a hint by typing {BLUE}'hint'{RESET}.\n")
 
     while tries > 0 and '_' in guessed_word:
         if time.time() - start_time > 60:
@@ -250,7 +250,7 @@ def start_game():
             store_score(name, score)
             bottom_input()
 
-        guess = input("Enter a letter or guess the complete word: ").lower()
+        guess = input("Enter a letter or guess the complete word: \n").lower()
 
         if guess == 'hint':
             if score >= 15:
@@ -277,7 +277,7 @@ def start_game():
                         guessed_word[i] = guess
                 print("Letters tried:", ", \n".join(guessed_letters))
                 print(" ".join(guessed_word))
-                print("You've already tried that letter. Try another one.\n")
+                print("\nYou've already tried that letter. Try another one.\n")
                 continue
             guessed_letters.append(guess)
 
@@ -296,7 +296,7 @@ def start_game():
                 print(draw_hangman(tries))
                 print(f"{RED}Wrong letter!\n{RESET}")
 
-            print("Letters tried:", ", ".join(guessed_letters))
+            print("Letters tried:", ", \n".join(guessed_letters))
             print(" ".join(guessed_word))
         elif len(guess) == len(word) and guess.isalpha():
             if guess == word:
