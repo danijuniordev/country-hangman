@@ -107,6 +107,26 @@ The hint system is a way to help users guess the word, but before you ask for a 
 
 ![Flowchart](readme_images/flow.png)
 
+## Test Table
+
+## Main program
+
+| Expectation | Result |
+| :---------------------------------: | :------------------------------:|
+| Be able to start the game when the user types 1 as input. | Pass |
+| Only start the game after typing a name, or it will prompt you to do so. | Pass |
+| Be able to read an introduction when users type 2 as input. | Pass |
+| Be able to view the scores when the user types 3 as input. | Pass |
+| Input invalid character. | Pass |
+| Be able to request a hint only after earning 15 points. | Pass |
+| See which letters I have already guessed. | Pass |
+| This letter has already been tried. | Pass |
+| Display incorrect or correct letter and draw a part of the body. | Pass |
+| The game is over after the drawing is fully completed. | Pass |
+| Display the country and the score after finishing the game. | Pass |
+| Every page has an option to press enter and return to the main menu. | Pass |
+| After 1 minute, the time is up. | Pass |
+
 ## Technologies
 
 - **Python:** Backend Development
