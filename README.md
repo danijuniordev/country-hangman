@@ -126,6 +126,8 @@ The hint system is a way to help users guess the word, but before you ask for a 
 | Display the country and the score after finishing the game. | Pass |
 | Every page has an option to press enter and return to the main menu. | Pass |
 | After 1 minute, the time is up. | Pass |
+| The score system is working. | Pass |
+| Get a random country from Google Sheets. | Pass |
 
 ## Technologies
 
